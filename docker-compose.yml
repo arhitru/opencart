@@ -1,0 +1,14 @@
+opencart:
+  image: arhitru/opencart
+  ports:
+    - "8000:80"
+  links:
+    - mariadb
+  restart: always
+
+mariadb:
+  image: linuxserver/mariadb:arm32v7-latest
+  environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=opencart
+  restart: always
